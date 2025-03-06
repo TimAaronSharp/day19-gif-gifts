@@ -10,4 +10,13 @@ export class Gift {
     this.id = data.id
     this.timestamp = data.timestamp || true
   }
+  
+  
+  
+  get HTMLCard() {
+    return `
+    <p>${this.tag}</p>
+    
+    `
+  }
 }
