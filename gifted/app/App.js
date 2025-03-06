@@ -1,10 +1,10 @@
 import { AuthController } from "./Auth/AuthController.js"
-import { GiftsController } from "./controllers/GiftController.js"
+import { GiftsController } from "./controllers/GiftsController.js"
 
 
 class App {
 authcontroller = new AuthController()
-giftController = new GiftsController()
+giftsController = new GiftsController()
 
 }
 

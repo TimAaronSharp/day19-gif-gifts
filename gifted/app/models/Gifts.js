@@ -15,16 +15,18 @@ export class Gift {
 
   get HTMLCard() {
     return `
-    <div class="col-3">
-          <div class="card">
-            <div class="card-header" >
-              <p>${this.tag}</p>
-            </div>
-            <div class="card-body">
-            </div>
+     
+       <div class="col-md-4">
+         <div class="mb-3 card" style="width: 18rem;">
+          <img src="${this.url}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">${this.tag}</h5>
+            <p class="card-text">${this.profilesOpened}</p>
+            <a href="#" onclick="app.giftsController.openGift('${this.id}')" class="btn btn-primary">Open gift</a>
           </div>
-        </div>
-    
+        </div> 
+
+       </div>
     `
   }
 }

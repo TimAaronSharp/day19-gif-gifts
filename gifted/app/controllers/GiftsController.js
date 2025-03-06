@@ -21,7 +21,14 @@ drawGifts(){
 }
 
 
-
+async openGift(giftId){
+  try {
+    await giftsService.openGift(giftId)
+  } catch (error) {
+    Pop.error(error);
+    
+  }
+}
 
 async getGifts(){
   try {
