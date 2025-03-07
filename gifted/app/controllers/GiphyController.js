@@ -8,7 +8,7 @@ import { Pop } from "../utils/Pop.js";
 
 export class GiphyController {
   constructor() {
-
+    AppState.on('giphys', this.drawGiphys)
   }
   async searchGiphy() {
     try {
@@ -32,5 +32,23 @@ export class GiphyController {
       console.error(error);
 
     }
+
+  }
+
+  drawGiphys() {
+    const giphys = AppState.giphys
+    let content = ''
+    giphys.forEach(giphy => content += giphy.HTMLTemplate)
+    const giphyElem = document.getElementById('search-results-card')
+    giphyElem.innerHTML = content
+  }
+
+  toggleTagInput(gifTitle) {
+    const theButton = document.getElementById(gifTitle)
+    theButton.classList.remove('toggle-none')
+    theButton.classList.add('toggle-block')
+
+    console.log(gifTitle);
+
   }
 }

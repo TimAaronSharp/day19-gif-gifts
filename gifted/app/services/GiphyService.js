@@ -1,32 +1,40 @@
+import { AppState } from "../AppState.js";
 import { Gift } from "../models/Gifts.js";
+import { Giphy } from "../models/Giphy.js";
 
 
 // @ts-ignore
 const giphyApi = axios.create({
-  baseURL: 'http://api.giphy.com/v1/gifs/search/tags?api_key=',
+  baseURL: 'http://api.giphy.com/v1/gifs',
   timeout: 8000,
   params: {
-    key: 'MbkWTexkqbK0p62LndY5E7Pr79XVKlUV',
+    api_key: 'MbkWTexkqbK0p62LndY5E7Pr79XVKlUV',
     rating: 'pg',
     limit: 10,
+
   }
 });
 const apiKey = 'MbkWTexkqbK0p62LndY5E7Pr79XVKlUV'
 
-
-
 class GiphyService {
 
   // &q=${formInputValue}&limit=25&offset=0
-  async searchGiphy(formInputValue) {
+  async searchGiphy(query) {
 
 
-    const response = await giphyApi.get(`&q=${formInputValue}`)
-    // console.log(`reponse string is search/tags?api_key=${giphyApi.params.key}&q=${formInputValue}&limit=25&offset=0`);
+    const response = await giphyApi.get(`search`, {
+      params: {
+        q: query,
+        bundle: 'messaging_non_clips'
+      }
+    });
 
-    console.log(`search response is ${JSON.stringify(response.data)}`);
+    const giphys = response.data.data.map(giphy => new Giphy(giphy))
+    AppState.giphys = giphys
 
-    // const giphys = response.data.map(giphy => new Gift(giphy))
+    console.log(giphys);
+
+
 
 
   }

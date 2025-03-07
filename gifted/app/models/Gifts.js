@@ -15,10 +15,9 @@ export class Gift {
 
   get HTMLCard() {
     return `
-     
        <div class="col-md-4">
          <div class="mb-3 card" style="width: 18rem;">
-          <img src="${this.url}" class="card-img-top img-fluid" alt="...">
+          <img src="${this.url}" class="card-img-top img-fluid" alt="${this.tag}">
           <div class="card-body">
             <h5 class="card-title">${this.tag}</h5>
             <p class="card-text">${this.profilesOpened}</p>
