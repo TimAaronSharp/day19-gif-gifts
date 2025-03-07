@@ -6,7 +6,8 @@ class ObservableAppState extends EventEmitter {
   /**
    * @type {Gift[]}
    */
-gifts = []
+  gifts = []
+
 }
 
 export const AppState = createObservableProxy(new ObservableAppState())
