@@ -23,9 +23,11 @@ export class GiftsController {
 
   async openGift(giftId) {
     try {
+      event.preventDefault()
       await giftsService.openGift(giftId)
     } catch (error) {
       Pop.error(error);
+      console.error(error);
 
     }
   }
@@ -35,6 +37,7 @@ export class GiftsController {
       await giftsService.getGifts()
     } catch (error) {
       Pop.error(error)
+      console.error(error);
     }
   }
 
@@ -44,10 +47,13 @@ export class GiftsController {
       const formElem = event.target
 
       const formData = getFormData(formElem)
+      console.log(formData);
+
       await giftsService.createGift(formData)
 
     } catch (error) {
       Pop.error(error)
+      console.error(error);
     }
   }
 

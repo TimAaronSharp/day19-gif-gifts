@@ -1,3 +1,5 @@
+import { AppState } from "../AppState.js"
+
 export class Gift {
   constructor(data) {
     this.tag = data.tag
@@ -20,12 +22,29 @@ export class Gift {
           <img src="${this.url}" class="card-img-top img-fluid" alt="${this.tag}">
           <div class="card-body">
             <h5 class="card-title">${this.tag}</h5>
-            <p class="card-text">${this.profilesOpened}</p>
-            <a href="#" onclick="app.giftsController.openGift('${this.id}')" class="btn btn-primary">Open gift</a>
+            ${this.openGiftButton}
           </div>
         </div> 
 
        </div>
     `
   }
+
+  get openGiftButton() {
+
+    if (this.profileIdsOpened.includes(AppState.identity.id)) {
+      return ''
+    }
+    return `
+      <a href="#" onclick="app.giftsController.openGift('${this.id}')" class="btn btn-primary">Open gift</a>
+      `
+  }
 }
+//     })
+//     return `
+//     <a href="#" onclick="app.giftsController.openGift('${this.id}')" class="btn btn-primary">Open gift</a>
+//     `
+//   }
+// }
+
+// { <p class="card-text">${this.profilesOpened}</p>  }

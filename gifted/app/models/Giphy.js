@@ -16,9 +16,13 @@ export class Giphy {
     <div class="card-body">
       <h5 class="card-title">${this.title}</h5>
       <button id="toggle-button" onclick="app.giphyController.toggleTagInput('${this.id}')" class="btn btn-success">Save</button>
-      <label for="${this.id}"></label>
-      <input class="form-control mb-2 toggle-none" id="${this.id}" name="tag" type="text" placeholder="Enter a tag for the gif">
-      <button class="btn btn-primary toggle-none">Upload</button>
+      <form id="${this.id}" class="toggle-none" onsubmit="app.giftsController.createGift()">
+      <label for="${this.title}"></label>
+      <input class="form-control mb-2" id="${this.title}" name="tag" type="text" placeholder="Enter a tag for the gif">
+      <label for="${this.id}-url">Don't change URL!</label>
+      <input class="form-control mb-2" id="${this.id}-url" name="url" type="text" value="${this.imgUrl}">
+      <button type="submit" class="btn btn-primary">Upload</button>
+      </form>
    </div>
   </div> 
 </div>

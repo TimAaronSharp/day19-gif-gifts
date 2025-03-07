@@ -25,6 +25,7 @@ export class GiphyController {
 
       // AppState.testArray.push(formData)
       // console.log(`formData in testArray is ${AppState.testArray[0]}`);
+      console.log(AppState.identity.id);
 
       await giphyService.searchGiphy(formInputValue)
     } catch (error) {
@@ -43,12 +44,13 @@ export class GiphyController {
     giphyElem.innerHTML = content
   }
 
-  toggleTagInput(gifTitle) {
-    const element = document.getElementById(gifTitle)
+  toggleTagInput(gifId) {
+    const element = document.getElementById(gifId)
     element.classList.toggle('toggle-block')
-    // element.classList.add('toggle-block')
 
-    console.log(gifTitle);
+    // console.log(gifId);
 
   }
 }
+
+

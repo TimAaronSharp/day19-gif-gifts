@@ -9,7 +9,7 @@ class GiftsService {
       const openedGift = AppState.gifts.find(gift => gift.id == giftId)
       openedGift.opened = !openedGift.opened
       const openedGiftIndex = gifts.findIndex((gift) => gift.id == giftId)
-      console.log(`found index is ${openedGiftIndex}`);
+      // console.log(`found index is ${openedGiftIndex}`);
 
       const response = await api.put(`api/gifts/${giftId}`, openedGift)
       const updatedGift = new Gift(response.data)
@@ -30,14 +30,14 @@ class GiftsService {
       // console.log('got gifts', response.data);
       const gifts = response.data.map(pojo => new Gift(pojo))
       AppState.gifts = gifts
-      console.log(AppState.gifts);
+      console.log(gifts);
 
    }
 
-   async createGift(formData) {
+   async createGift(formData, imgUrl) {
 
       const response = await api.post('api/gifts', formData)
-      console.log(`createGift response is ${response}`);
+      console.log(response);
 
       const newGift = new Gift(response.data)
       AppState.gifts.push(newGift)

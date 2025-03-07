@@ -31,7 +31,10 @@ class GiphyService {
     const giphys = response.data.data.map(giphy => new Giphy(giphy))
     AppState.giphys = giphys
 
-    console.log(giphys);
+    // console.log(giphys);
+
+    // console.log(AppState.identity);
+
 
 
 
