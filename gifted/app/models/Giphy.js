@@ -18,6 +18,7 @@ export class Giphy {
       <button id="toggle-button" onclick="app.giphyController.toggleTagInput('${this.id}')" class="btn btn-success">Save</button>
       <label for="${this.id}"></label>
       <input class="form-control mb-2 toggle-none" id="${this.id}" name="tag" type="text" placeholder="Enter a tag for the gif">
+      <button class="btn btn-primary toggle-none">Upload</button>
    </div>
   </div> 
 </div>

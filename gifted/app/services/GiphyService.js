@@ -1,5 +1,4 @@
 import { AppState } from "../AppState.js";
-import { Gift } from "../models/Gifts.js";
 import { Giphy } from "../models/Giphy.js";
 
 

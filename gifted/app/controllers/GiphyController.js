@@ -44,9 +44,9 @@ export class GiphyController {
   }
 
   toggleTagInput(gifTitle) {
-    const theButton = document.getElementById(gifTitle)
-    theButton.classList.remove('toggle-none')
-    theButton.classList.add('toggle-block')
+    const element = document.getElementById(gifTitle)
+    element.classList.toggle('toggle-block')
+    // element.classList.add('toggle-block')
 
     console.log(gifTitle);
 
